@@ -26,9 +26,12 @@ class TestApiProcess(unittest.TestCase):
         self.assertEqual(testin.response, {'date': '20.02.2012', 'id': 77, 'info': 'information', 'time': '11:27'},
                          'wrong')
 
-    def test_api_info_response_incorrect(self):
+    def test_api_response_incorrect(self):
         self.assertNotEqual(testin.response, {'date': '20.02.2012', 'id': 77, 'info': 'information', 'time': '11:28'},
                             'Response is correct')
+
+    def test_api_response_not_empty(self):
+        self.assertIsNotNone(testin.response, 'Response is Empty')
 
     def test_api_all(self):
         self.assertEqual(testin.url, 'www.auth_api.info/admin/company/208/branches', 'wrong')
